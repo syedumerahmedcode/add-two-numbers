@@ -1,3 +1,5 @@
+import java.util.Stack;
+
 public class App {
     public static void main(String[] args) throws Exception {
         /**
@@ -24,5 +26,51 @@ public class App {
          * 
          */
         System.out.println("Hello, World!");
+        ListNode list1 = new ListNode(2);
+        ListNode node12 = new ListNode(4);
+        ListNode node13 = new ListNode(3);
+        list1.next = node12; // 2 -> 4
+        node12.next = node13; // 4 -> 3
+        System.out.println("The first list is:");
+        printReverse(list1);
+
+        ListNode list2 = new ListNode(5);
+        ListNode node22 = new ListNode(6);
+        ListNode node33 = new ListNode(4);
+        list2.next = node22; // 5 -> 6
+        node22.next = node33; // 6 -> 4
+        System.out.println("The second list is:");
+        printReverse(list2);
+
+        Solution solution = new Solution();
+        ListNode result = solution.addTwoNumbers(list1, list2);
+        System.out.println("The result list is:");
+        printList(result);
+
+    }
+
+    public static void printReverse(ListNode head) {
+        Stack<Integer> stack = new Stack<>();
+
+        // Push elements onto the stack
+        ListNode current = head;
+        while (current != null) {
+            stack.push(current.val);
+            current = current.next;
+        }
+
+        // Pop elements to display in reverse order
+        while (!stack.isEmpty()) {
+            System.out.println(stack.pop());
+        }
+    }
+
+    public static void printList(ListNode head) {
+        ListNode current = head;
+        while (current != null) {
+            System.out.print(current.val + " ");
+            current = current.next;
+        }
+        System.out.println();
     }
 }
