@@ -29,7 +29,7 @@ public class Solution {
             int x = (l1 != null) ? l1.val : 0;
             int y = (l2 != null) ? l2.val : 0;
 
-            int sum = x + y;
+            int sum = carry + x + y;
             /**
              * find the carry value
              */
@@ -38,6 +38,7 @@ public class Solution {
              * This ensures that only a single digit is stored in the value element
              */
             ans.next = new ListNode(sum % 10);
+            ans = ans.next;
             /**
              * move pointers further
              */

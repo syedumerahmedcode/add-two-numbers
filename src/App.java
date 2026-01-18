@@ -45,7 +45,7 @@ public class App {
         Solution solution = new Solution();
         ListNode result = solution.addTwoNumbers(list1, list2);
         System.out.println("The result list is:");
-        printList(result);
+        printReverse(result);
 
     }
 
@@ -61,8 +61,9 @@ public class App {
 
         // Pop elements to display in reverse order
         while (!stack.isEmpty()) {
-            System.out.println(stack.pop());
+            System.out.print(stack.pop());
         }
+        System.out.println();
     }
 
     public static void printList(ListNode head) {
